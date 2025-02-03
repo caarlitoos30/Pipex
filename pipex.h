@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:06:05 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/03 23:11:06 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/03 23:44:12 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-# define ERROR_MESSAGE "Introduce el ejecutable y mandelbrot o julia con dos"
-
-typedef struct s_complex
-{
-	double	x;
-	double	y;
-}				t_complex;
+# include <unistd.h>
+# include <stdio.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include<sys/types.h>
+# include<sys/stat.h>
+# include <fcntl.h>  
+# include <stdlib.h>
 
 int			ft_strncmp(char *s1, char *s2, int n);
 
