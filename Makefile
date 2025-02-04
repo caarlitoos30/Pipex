@@ -1,38 +1,45 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/02/03 23:05:52 by calguaci          #+#    #+#              #
-#    Updated: 2025/02/04 09:31:58 by calguaci         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-NAME	=	pipex
+LIB = ar rcs
+RM = rm -f
 
 CC = cc
 
-CFLAGS	=	-Wall -Wextra -Werror
+RED    = \033[31m
+GREEN  = \033[32m
+YELLOW = \033[33m
+BLUE   = \033[34m
+RESET  = \033[0m
 
-STRUCT	= 	-Lminilibx-linux -lmlx_Linux -lX11 -lXext -o fractol
+CCFLAGS = -Wall -Wextra -Werror -g3
 
-SRCS	=	main.c \
-			string_utils.c \
+SRC_DIR = src
 
-OBJS	=	${SRCS:.c=.o}
+SRC = main.c \
+
+OBJ = $(SRC:.c=.o)
+
+INCLUDE = pipex.h
+
+NAME = pipex
+
+LIBFTA = libft_ext/libft.a
 
 all: $(NAME)
 
-$(NAME): $(UTILS) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS)  -o $(NAME) $(STRUCT) -I ./fractol.h
+%.o: %.c
+	@$(CC) $(CCFLAGS) -I/libft/libft.h -I/usr/include -Iminilibx-linux -O3 -c $< -o $@
+
+$(NAME): $(OBJ)
+	@cd libft_ext && make
+	@$(CC) $(CCFLAGS) $(OBJ) -Ilibft_ext $(LIBFTA) -o $(NAME)
+	@echo "$(YELLOW)        ||>>    $(BLUE)pipex $(YELLOW)compiled!!    <<||$(RESET)"
 
 clean:
-	rm -f $(OBJS)
+	@$(RM) $(OBJ)
+	@cd libft_ext && make clean
 
-fclean: clean
-	rm -f $(NAME)
+fclean:
+	@$(RM) $(NAME) $(OBJ)
+	@cd libft_ext && make fclean
 
 re: fclean all
 

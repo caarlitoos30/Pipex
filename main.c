@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:05:48 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/04 18:33:12 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/04 22:17:22 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,29 @@ y encontrar el path y variables de entorno
 
 */
 
-
 int main(int argc, char **argv, char **env)
 {
     int pipe_fd[2];
     int status;
     int pid;
+    t_pipex *var;
     
-    pipe(pipe_fd);
-    
-    if(pid == 0)
+
+    if(argc == 5)
     {
-        close(pipe_fd[READ_END]);
-        dup2(pipe_fd[WRITE_END], STDOUT_FILENO);
-        /*EXEC*/
+        pipe(pipe_fd);
+    
+        if(pid == 0)
+        {
+            dup2(pipe_fd[READ_END], STDIN_FILENO);
+            close(pipe_fd[READ_END]);
+            dup2(pipe_fd[WRITE_END], STDOUT_FILENO);
+            close(pipe_fd[WRITE_END]);
+            /* if(execve(var->path, var->cmd, var->envp) == -1)*/
+            
+        }
     }
+        
+        
+    
 }
