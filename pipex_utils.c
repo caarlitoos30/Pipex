@@ -1,31 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 23:06:05 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/04 08:35:08 by calguaci         ###   ########.fr       */
+/*   Created: 2025/02/04 08:34:44 by calguaci          #+#    #+#             */
+/*   Updated: 2025/02/04 08:35:25 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "pipex.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-
-# include <unistd.h>
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>  
-# include <stdlib.h>
-
-int			ft_strncmp(char *s1, char *s2, int n);
-
-
-#endif
