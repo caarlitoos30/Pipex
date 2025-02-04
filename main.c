@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:05:48 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/04 22:17:22 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/04 22:18:39 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int main(int argc, char **argv, char **env)
             dup2(pipe_fd[WRITE_END], STDOUT_FILENO);
             close(pipe_fd[WRITE_END]);
             /* if(execve(var->path, var->cmd, var->envp) == -1)*/
+            
             
         }
     }
