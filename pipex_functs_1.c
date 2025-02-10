@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_functs.c                                     :+:      :+:    :+:   */
+/*   pipex_functs_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:42:45 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/10 18:52:50 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:18:00 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-void	freeall(t_pipex *vars)
-{
-	freedoublepointer(vars->cmd);
-	freedoublepointer(vars->cmd2);
-	free(vars->path);
-	free(vars->path2);
-	free(vars);
-}
 
 int	vardefs(t_pipex *vars, char **argv)
 {
@@ -39,3 +30,59 @@ int	vardefs(t_pipex *vars, char **argv)
 	vars->path2[ft_strlen(vars->path2) - 1] = '\0';
 	return (0);
 }
+
+char	*pathseek(char **cmd, char **envp)
+{
+	int			fd[2];
+	int			pid;
+	char		*temporal;
+	char const	*argv[] = {"which, args[0], NULL"};
+
+	if (pipe(fd) == -1)
+		return (NULL);
+	pid = fork();
+	if (pid == -1)
+		return (NULL);
+	if (pid == 0)
+	{
+		pipe_op(fd);
+		if (execve("/usr/bin/which", argv, envp) == -1)
+			return (NULL);
+	}
+	else
+	{
+		close(fd[WRITE_END]);
+		waitpid(pid, NULL, 0);
+		temporal = get_next_line(fd[READ_END]);
+		return (close(fd[READ_END]), temporal);
+	}
+	return (NULL);
+}
+
+void	pipe_op(int fd[2])
+{
+	close(fd[READ_END]);
+	dup2(fd[WRITE_END], STDOUT_FILENO);
+	close(fd[WRITE_END]);
+}
+
+void	free_all(t_pipex *vars)
+{
+	freedoublepointer(vars->cmd);
+	freedoublepointer(vars->cmd2);
+	free(vars->path);
+	free(vars->path2);
+	free(vars);
+}
+
+int	checkeo(char **argv, t_pipex *var)
+{
+	if (access(argv[1], R_OK) == -1)
+		return (-1);
+	if (!var->path || access(var->path, X_OK) != 0)
+		return (-1);
+	if (!var->path2 || access(var->path2, X_OK) != 0)
+		return (-1);
+	return (0);
+}
+
