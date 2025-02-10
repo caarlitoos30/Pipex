@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:06:05 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/04 21:55:14 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:26:25 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
-
+# include "./libft-full/libft.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <sys/types.h>

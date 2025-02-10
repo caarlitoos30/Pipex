@@ -6,68 +6,77 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:05:48 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/04 22:18:39 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:52:42 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-/*Ahora tenemos que recibir un archivo, un comando que se aplica sobre este y que el output lo
-redireccione al input de la segunda parte del pipe, y que luego el output del segundo comando del pipe se redireccione,
-a un output file que seleccionamos **Dudosa posibilidad del bonus debido a la futura minishell** */
-
-/* ./pipex infile < grep -a | wc -c > outfile*/
-
-/*Lógica de abiertos y de cerrados hecha, toca hacer la parte de ejecutar, crear la función de abrir todo para ahorrar líneas
-y encontrar el path y variables de entorno 
 
 
-    STDOUT_FILENO;
-    STDIN_FILENO;
-*/
-
-/*
-
--esquema hijo
-    dup del standar output al pipeFD 1,
-    cerramos piopeFD 0,
-
-    dup2(STDOUT_FILENO, pipe_fd[1])
-    close(pipe_fd[0])
-    
--equema padre
-    dup del standar input al pipe FD 0
-    cerramos el pipeFD 1
-
-    dup2(STDIN_FILENO, pipe_fd[0]);
-    close(pipe_fd[1]);
-
-*/
-
-int main(int argc, char **argv, char **env)
+char	*pathseek(char **cmd, char **envp)
 {
-    int pipe_fd[2];
-    int status;
-    int pid;
-    t_pipex *var;
-    
+	int			fd[2];
+	int			pid;
+	char		*temporal;
+	char const	*argv[] = {"which, args[0], NULL"};
 
-    if(argc == 5)
-    {
-        pipe(pipe_fd);
-    
-        if(pid == 0)
-        {
-            dup2(pipe_fd[READ_END], STDIN_FILENO);
-            close(pipe_fd[READ_END]);
-            dup2(pipe_fd[WRITE_END], STDOUT_FILENO);
-            close(pipe_fd[WRITE_END]);
-            /* if(execve(var->path, var->cmd, var->envp) == -1)*/
-            
-            
-        }
-    }
-        
-        
-    
+	if (pipe(fd) == -1)
+		return (NULL);
+	pid = fork();
+	if (pid == -1)
+		return (NULL);
+	if (pid == 0)
+	{
+		pipe_op(fd);
+		if (execve("/usr/bin/which", argv, envp) == -1)
+			return (NULL);
+	}
+	else
+	{
+		close(fd[WRITE_END]);
+		waitpid(pid, NULL, 0);
+		temporal = get_next_line(fd[READ_END]);
+		return (close(fd[READ_END]), temporal);
+	}
+	return (NULL);
+}
+
+void	pipe_op(int fd[2])
+{
+	close(fd[READ_END]);
+	dup2(fd[WRITE_END], STDOUT_FILENO);
+	close(fd[WRITE_END]);
+}
+
+int	checks(char **argv, t_pipex *var)
+{
+	if (access(argv[1], R_OK) == -1)
+		return (-1);
+	if (!var->path || access(var->path, X_OK) != 0)
+		return (-1);
+	if (!var->path || access(var->path2, X_OK) != 0)
+		return (-1);
+	return (0);
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	t_pipex	*var;
+
+	var = ft_calloc(1, sizeof(t_pipex));
+	var->envp = envp;
+	if (argc != 5)
+		return (free(var), 2);
+	if (argc == 5)
+	{
+		pipe(var->fd);
+		if (var->pid == 0)
+		{
+			dup2(var->fd[READ_END], STDIN_FILENO);
+			close(var->fd[READ_END]);
+			dup2(var->fd[WRITE_END], STDOUT_FILENO);
+			close(var->fd[WRITE_END]);
+		}
+	}
 }
