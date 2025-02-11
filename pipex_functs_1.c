@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:42:45 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/10 19:18:00 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:15:05 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,13 @@ void	pipe_op(int fd[2])
 	close(fd[WRITE_END]);
 }
 
+void	pipe_in(int fd[2])
+{
+	close(fd[WRITE_END]);
+	dup2(fd[READ_END], STDIN_FILENO);
+	close(fd[READ_END]);
+}
+
 void	free_all(t_pipex *vars)
 {
 	freedoublepointer(vars->cmd);
@@ -74,15 +81,3 @@ void	free_all(t_pipex *vars)
 	free(vars->path2);
 	free(vars);
 }
-
-int	checkeo(char **argv, t_pipex *var)
-{
-	if (access(argv[1], R_OK) == -1)
-		return (-1);
-	if (!var->path || access(var->path, X_OK) != 0)
-		return (-1);
-	if (!var->path2 || access(var->path2, X_OK) != 0)
-		return (-1);
-	return (0);
-}
-

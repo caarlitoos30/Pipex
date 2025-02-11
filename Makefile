@@ -6,7 +6,7 @@
 #    By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/09 18:44:49 by calguaci          #+#    #+#              #
-#    Updated: 2025/02/09 18:44:50 by calguaci         ###   ########.fr        #
+#    Updated: 2025/02/11 17:18:22 by calguaci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,13 @@ RM = rm -f
 
 CC = cc
 
-RED    = \033[31m
-GREEN  = \033[32m
-YELLOW = \033[33m
-BLUE   = \033[34m
-RESET  = \033[0m
-
 CCFLAGS = -Wall -Wextra -Werror -g3
 
 SRC_DIR = src
 
 SRC = main.c \
+		pipex_functs_1.c \
+		pipex_functs_2.c \
 
 OBJ = $(SRC:.c=.o)
 

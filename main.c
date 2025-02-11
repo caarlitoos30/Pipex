@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:05:48 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/10 19:11:02 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:13:48 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	main(int argc, char **argv, char **envp)
 	wait(NULL);
 	close(STDOUT_FILENO);
 	close(STDERR_FILENO);
-	freepipex(vars);
+	free_all(vars);
 	return (0);
 }
