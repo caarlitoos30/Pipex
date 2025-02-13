@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:06:05 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/11 17:02:16 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:46:24 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,6 @@
 # define READ_END 0
 # define WRITE_END 1
 
-int		vardefs(t_pipex *vars, char **argv);
-char	*pathseek(char **cmd, t_pipex *vars);
-void	pipe_op(int fd[2]);
-int		cmdcall(t_pipex *vars, char **cmd);
-int		checkeo(char **argv, t_pipex *vars);
-void	freepipex(t_pipex *vars);
-void	free_all(t_pipex *vars);
-
 typedef struct pipex
 {
 	int		pid;
@@ -51,5 +43,13 @@ typedef struct pipex
 	char	**cmd;
 	char	**cmd2;
 }	t_pipex;
+
+int		vardefs(t_pipex *vars, char **argv);
+char	*pathseek(char **cmd, t_pipex *vars);
+void	pipe_op(int fd[2]);
+int		cmdcall(t_pipex *vars, char **cmd);
+int		checkeo(char **argv, t_pipex *vars);
+void	freepipex(t_pipex *vars);
+void	free_all(t_pipex *vars);
 
 #endif
