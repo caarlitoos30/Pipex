@@ -6,7 +6,7 @@
 #    By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:12:31 by calguaci          #+#    #+#              #
-#    Updated: 2025/02/16 21:12:34 by calguaci         ###   ########.fr        #
+#    Updated: 2025/02/16 21:31:01 by calguaci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,25 +35,25 @@ INCLUDE = pipex.h
 
 NAME = pipex
 
-LIBFTA = libft_ext/libft.a
+LIBFTA = libft-full/libft.a
 
-all: mario $(NAME)
+all: $(NAME)
 
 %.o: %.c
 	@$(CC) $(CCFLAGS) -I/libft/libft.h -I/usr/include -Iminilibx-linux -O3 -c $< -o $@
 
 $(NAME): $(OBJ)
-	@cd libft_ext && make
-	@$(CC) $(CCFLAGS) $(OBJ) -Ilibft_ext $(LIBFTA) -o $(NAME)
+	@cd libft-full && make
+	@$(CC) $(CCFLAGS) $(OBJ) -Ilibft-full $(LIBFTA) -o $(NAME)
 	@echo "$(YELLOW)        ||>>    $(BLUE)pipex $(YELLOW)compiled!!    <<||$(RESET)"
 
 clean:
 	@$(RM) $(OBJ)
-	@cd libft_ext && make clean
+	@cd libft-full && make clean
 
 fclean:
 	@$(RM) $(NAME) $(OBJ)
-	@cd libft_ext && make fclean
+	@cd libft-full && make fclean
 
 re: fclean all
 

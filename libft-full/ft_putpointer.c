@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jainavas <jainavas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:45:29 by jainavas          #+#    #+#             */
-/*   Updated: 2024/10/15 00:45:07 by jainavas         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:28:48 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@
 static size_t	get_digits(unsigned long n, char *base)
 {
 	size_t	i;
-	char	buffer[30];
+	char	*buffer;
 
 	i = 0;
+	buffer = malloc(sizeof(char) * 16);
 	while (n > 0)
 	{
 		buffer[i++] = base[n % 16];
 		n /= 16;
 	}
+	free(buffer);
 	return (i);
 }
 

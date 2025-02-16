@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_intputchar_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jainavas <jainavas@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 17:42:33 by jainavas          #+#    #+#             */
-/*   Updated: 2024/08/13 17:42:33 by jainavas         ###   ########.fr       */
+/*   Created: 2025/02/16 21:39:45 by calguaci          #+#    #+#             */
+/*   Updated: 2025/02/16 21:39:45 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

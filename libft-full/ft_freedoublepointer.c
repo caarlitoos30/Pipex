@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_freedoublepointer.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jainavas <jainavas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 18:35:30 by jainavas          #+#    #+#             */
-/*   Updated: 2024/10/16 19:10:51 by jainavas         ###   ########.fr       */
+/*   Created: 2025/02/16 21:39:50 by calguaci          #+#    #+#             */
+/*   Updated: 2025/02/16 21:39:52 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

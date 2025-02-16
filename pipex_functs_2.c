@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:09:35 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/16 20:26:12 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:28:11 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	cmdcall(t_pipex *var, char **cmd)
 		dup2(var->fdin, var->fd[READ_END]);
 		close(var->fdin);
 		dup2(var->fd[WRITE_END], STDOUT_FILENO);
-		pipex_in(var->fd);
+		pipe_in(var->fd);
 		if (execve(var->path, var->cmd, var->envp) == -1)
 			return (-1);
 	}
@@ -74,11 +74,14 @@ int	cmdcall2(t_pipex *var, char **cmd)
 
 void	fdtofile(t_pipex *var, char *filename)
 {
+	ssize_t p;
+	
+	p = 0;
 	var->fdout = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0644);
 	var->buf = get_next_line(var->fd2[READ_END]);
-	while (var->buf)
+	while (var->buf && p != -1)
 	{
-		write(var->fdout, var->buf, ft_strlen(var->buf));
+		p = write(var->fdout, var->buf, ft_strlen(var->buf));
 		free(var->buf);
 		var->buf = get_next_line(var->fd2[READ_END]);
 	}

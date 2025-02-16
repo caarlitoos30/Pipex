@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:06:05 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/16 20:28:46 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:27:17 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct pipex
 int		vardefs(t_pipex *vars, char **argv);
 char	*pathseek(char **cmd, t_pipex *vars);
 void	pipe_op(int fd[2]);
+void	pipe_in(int fd[2]);
 int		cmdcall(t_pipex *vars, char **cmd);
 int		checkeo(char **argv, t_pipex *vars);
 void	freepipex(t_pipex *vars);

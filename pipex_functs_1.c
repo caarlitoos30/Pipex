@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:42:45 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/16 21:07:17 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:26:34 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*pathseek(char **args, t_pipex *var)
 	int			fd[2];
 	int			pid;
 	char		*temporal;
-	char const	*argv[] = {"which", args[0], NULL};
+	char *const	argv[] = {"which", args[0], NULL};
 
 	if (pipe(fd) == -1)
 		return (NULL);

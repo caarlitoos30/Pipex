@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jainavas <jainavas@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 00:54:06 by jainavas          #+#    #+#             */
-/*   Updated: 2024/08/12 00:54:06 by jainavas         ###   ########.fr       */
+/*   Created: 2025/02/16 21:32:02 by calguaci          #+#    #+#             */
+/*   Updated: 2025/02/16 21:32:02 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include "get_next_line.h"
+# include "ft_printf.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>

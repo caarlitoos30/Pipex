@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jainavas <jainavas@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 17:45:50 by jainavas          #+#    #+#             */
-/*   Updated: 2024/08/13 17:45:50 by jainavas         ###   ########.fr       */
+/*   Created: 2025/02/16 21:36:40 by calguaci          #+#    #+#             */
+/*   Updated: 2025/02/16 21:36:40 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

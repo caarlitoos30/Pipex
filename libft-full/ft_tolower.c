@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jainavas <jainavas@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 01:06:10 by jainavas          #+#    #+#             */
-/*   Updated: 2024/08/12 01:06:10 by jainavas         ###   ########.fr       */
+/*   Created: 2025/02/16 21:32:43 by calguaci          #+#    #+#             */
+/*   Updated: 2025/02/16 21:32:43 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

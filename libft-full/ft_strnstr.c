@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jainavas <jainavas@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 02:03:32 by jainavas          #+#    #+#             */
-/*   Updated: 2024/08/12 02:03:32 by jainavas         ###   ########.fr       */
+/*   Created: 2025/02/16 21:33:22 by calguaci          #+#    #+#             */
+/*   Updated: 2025/02/16 21:33:22 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jainavas <jainavas@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 00:56:53 by jainavas          #+#    #+#             */
-/*   Updated: 2024/08/12 00:56:53 by jainavas         ###   ########.fr       */
+/*   Created: 2025/02/16 21:39:04 by calguaci          #+#    #+#             */
+/*   Updated: 2025/02/16 21:39:04 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
