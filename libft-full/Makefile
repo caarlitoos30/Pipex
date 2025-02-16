@@ -6,13 +6,12 @@
 #    By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:32:09 by calguaci          #+#    #+#              #
-#    Updated: 2025/02/16 21:42:17 by calguaci         ###   ########.fr        #
+#    Updated: 2025/02/16 22:26:12 by calguaci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB = ar rcs
 RM = rm -f
-
 
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror -g3
@@ -38,20 +37,16 @@ INCLUDE = libft.h get_next_line.h ft_printf.h
 all: $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
-	@echo "$(YELLOW)||>>   Compiling $(BLUE)libft $(YELLOW)with $(BLUE)printf $(YELLOW)and $(BLUE)gnl$(YELLOW)   <<||$(RESET)"
 	@$(LIB) $(NAME) $(OBJ)
-	@echo "$(YELLOW)       ||>>    $(BLUE)libft.a $(YELLOW)compiled!!    <<||$(RESET)"
 
 %.o: %.c
 	@$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
 	@$(RM) $(OBJ)
-	@echo "$(RED).o cleaned$(RESET)"
 
 fclean:
 	@$(RM) $(NAME) $(OBJ)
-	@echo "$(RED).a and .o cleaned$(RESET)"
 
 re: fclean all
 
