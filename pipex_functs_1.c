@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:42:45 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/11 17:15:05 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:07:17 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	vardefs(t_pipex *vars, char **argv)
 	return (0);
 }
 
-char	*pathseek(char **cmd, char **envp)
+char	*pathseek(char **args, t_pipex *var)
 {
 	int			fd[2];
 	int			pid;
 	char		*temporal;
-	char const	*argv[] = {"which, args[0], NULL"};
+	char const	*argv[] = {"which", args[0], NULL};
 
 	if (pipe(fd) == -1)
 		return (NULL);
@@ -46,7 +46,7 @@ char	*pathseek(char **cmd, char **envp)
 	if (pid == 0)
 	{
 		pipe_op(fd);
-		if (execve("/usr/bin/which", argv, envp) == -1)
+		if (execve("/usr/bin/which", argv, var->envp) == -1)
 			return (NULL);
 	}
 	else

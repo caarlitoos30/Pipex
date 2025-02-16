@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:09:35 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/11 17:27:49 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:26:12 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,43 @@ int	cmdcall(t_pipex *var, char **cmd)
 		return (cmdcall2(var, var->cmd2));
 	}
 	return (0);
+}
+
+int	cmdcall2(t_pipex *var, char **cmd)
+{
+	if (!cmd)
+		return (-1);
+	if (pipe(var->fd2) == -1)
+		return (-1);
+	var->pid = fork();
+	if (var->pid == 0)
+	{
+		pipe_in(var->fd);
+		pipe_op(var->fd2);
+		if (execve(var->path2, cmd, var->envp) == -1)
+			return (-1);
+	}
+	else
+	{
+		close(var->fd[WRITE_END]);
+		close(var->fd[READ_END]);
+		close(var->fd2[WRITE_END]);
+		close(var->fdout);
+		return (fdtofile(var, var->output), 0);
+	}
+	return (0);
+}
+
+void	fdtofile(t_pipex *var, char *filename)
+{
+	var->fdout = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0644);
+	var->buf = get_next_line(var->fd2[READ_END]);
+	while (var->buf)
+	{
+		write(var->fdout, var->buf, ft_strlen(var->buf));
+		free(var->buf);
+		var->buf = get_next_line(var->fd2[READ_END]);
+	}
+	close(var->fdout);
+	close(var->fd2[READ_END]);
 }

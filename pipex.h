@@ -6,7 +6,7 @@
 /*   By: calguaci <calguaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 23:06:05 by calguaci          #+#    #+#             */
-/*   Updated: 2025/02/13 17:46:24 by calguaci         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:28:46 by calguaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,8 @@ int		cmdcall(t_pipex *vars, char **cmd);
 int		checkeo(char **argv, t_pipex *vars);
 void	freepipex(t_pipex *vars);
 void	free_all(t_pipex *vars);
+void	fdtofile(t_pipex *var, char *filename);
+int		cmdcall2(t_pipex *var, char **cmd);
+
 
 #endif
