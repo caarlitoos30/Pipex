@@ -1,1 +1,9 @@
-9
+Makefile
+libft-full
+main.c
+pipex
+pipex.h
+pipex_functs_1.c
+pipex_functs_2.c
+read
+write
